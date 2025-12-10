@@ -1,0 +1,43 @@
+@use "../2_utilities/variables" as *;
+@use "../2_utilities/mixins" as *;
+
+// Estilos para la sección de Escuelas (Clases)
+.seccion-escuelas__contenedor-articulos {
+    @include responsive-grid(300px); // Mínimo 300px de ancho para cada columna
+}
+
+.escuela-card {
+    background-color: $color-text-light;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    // Si la card es muy larga, en móvil quizás queremos centrar
+    text-align: center; 
+    
+    @media (min-width: $breakpoint-md) {
+        text-align: left; // Volvemos al estándar en pantallas grandes
+    }
+    
+    &__imagen img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    &__texto {
+        padding: 1.5rem;
+    }
+    
+    // Otros estilos de card...
+}
+
+// Estilos para los Productos Destacados (Merchandising)
+.hero-merchandising__productos-destacados {
+    @include responsive-grid(300px); // Se adaptará a 2 o 3 columnas dependiendo del espacio
+    
+    // En pantallas muy pequeñas, forzamos una sola columna
+    @media (max-width: $breakpoint-sm) {
+        grid-template-columns: 1fr; 
+    }
+}

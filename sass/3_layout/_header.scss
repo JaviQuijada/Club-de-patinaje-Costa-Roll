@@ -1,0 +1,167 @@
+@use "../2_utilities/variables" as *;
+@use "../2_utilities/mixins" as *;
+
+.header {
+    background-color: $color-primary;
+    padding: 1rem 0;
+    
+    &__contenedor {
+        @include container;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    &__logo-img img {
+        height: 50px; // Ajusta el tamaño de tu logo
+    }
+    &__nav {
+        display: none; // <--- ESTO OCULTA EL MENÚ EN MÓVIL POR DEFECTO
+        width: 100%; 
+        position: absolute; // Para que cubra toda la página debajo del header
+        top: 70px; // Ajusta según la altura de tu header
+        left: 0;
+        background-color: darken($color-secondary, 5%); // Fondo oscuro para el menú
+        padding: 1rem 0;
+        z-index: 100;
+        
+        // Estilo cuando se hace visible con JS
+        &.is-active {
+            display: block; // <--- ESTO LO MUESTRA CUANDO JS AÑADE LA CLASE
+        }
+
+        @media (min-width: $breakpoint-lg) {
+            display: flex; // Siempre visible en escritorio (anula las reglas de móvil)
+            position: static;
+            background-color: transparent;
+            width: auto;
+        }
+    }
+    
+    &__nav-lista {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        flex-direction: column; 
+        padding: 0 1rem;
+        
+        &--general li, &--usuario li {
+            margin-left: 1.5rem;
+        }
+        
+        a {
+            color: $color-secondary;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+
+            &:hover {
+                color: $color-secondary;
+            }
+        }
+    }
+
+    // Estilo del botón de registro destacado en el nav
+    &__btn-registro {
+        background-color: $color-primary;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: darken($color-primary, 10%);
+        }
+    }
+}
+
+
+/////////////////////////////////////////////////////
+
+
+
+
+.header {
+    background-color: $color-primary;
+    padding: 1rem 0;
+    
+    &__contenedor {
+        @include container;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    &__logo-img img {
+        height: 50px;
+    }
+
+    // El NAV completo
+    &__nav {
+        // Por defecto, ocultamos la navegación general en móvil (para mostrar un botón de hamburguesa)
+        display: none; // Ocultamos el nav principal en móvil
+        width: 100%; // Ocupa todo el ancho cuando se muestre (en modo colapsado)
+
+        @media (min-width: $breakpoint-lg) {
+            display: flex; // Mostramos en escritorio
+            width: auto;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+    
+    &__nav-lista {
+        display: flex;
+        flex-direction: column; // Apilado vertical en móvil
+
+        @media (min-width: $breakpoint-lg) {
+            flex-direction: row; // Horizontal en escritorio
+        }
+
+        &--general {
+            margin-bottom: 1rem; // Separación entre general y usuario en móvil
+            
+            @media (min-width: $breakpoint-lg) {
+                margin-bottom: 0;
+                margin-right: 2rem;
+            }
+        }
+        
+        li {
+            list-style: none;
+            margin: 0.5rem 0; // Margen vertical en móvil
+            
+            @media (min-width: $breakpoint-lg) {
+                margin: 0 1rem; // Margen horizontal en escritorio
+            }
+        }
+        
+        a {
+            // Estilos del enlace...
+        }
+    }
+    
+    // --- NUEVO: Botón de Hamburguesa (Solo visible en móvil) ---
+    &__menu-toggle {
+        display: block; // Visible por defecto en móvil
+        color: $color-secondary;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        @media (min-width: $breakpoint-lg) {
+            display: none; // Oculto en escritorio
+        }
+    }
+
+
+    .header__nav.is-active {
+        display: block;
+        position: absolute;
+        top: 70px; // Altura del header
+        left: 0;
+        z-index: 10;
+        background-color: $color-primary;
+        padding: 1rem;
+    }
+
+}

@@ -1,0 +1,25 @@
+
+
+// Colores de la Marca
+$color-primary: #2b9eb3;        // Azul o color principal del club
+$color-secondary: #fcab10;      // Color de acento (ej: un amarillo brillante)
+$color-text-dark: #e8333c;         // Texto principal
+$color-text-light: #44af69;        // Texto sobre fondos oscuros
+$color-background: #dbd5b5;     // Fondo de página
+$color-error: #dc3545;          // Errores o warnings
+
+// Tipografía
+$font-family-primary: 'Bebas Neue', sans-serif;
+$font-family-secondary: 'Roboto Slab', serif;
+$font-size-base: 16px;
+
+// Espaciado y Contenedores
+$spacing-unit: 1rem;
+$container-max-width: 1200px;
+$padding-section: 4rem 2rem;
+
+// Breakpoints (Media Queries)
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;

@@ -1,0 +1,33 @@
+@use "../2_utilities/variables" as *;
+@use "../2_utilities/mixins" as *;
+
+
+
+.horarios__contenedor-tabla {
+    width: 100%;
+    overflow-x: auto; // Permite el scroll horizontal en pantallas pequeñas
+    -webkit-overflow-scrolling: touch; // Mejorar el scroll en iOS
+}
+
+.tabla-horarios {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px; // Establece un ancho mínimo para forzar el scroll en móvil
+    
+    th, td {
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        text-align: center;
+        white-space: nowrap; // Evita que el contenido de las celdas se rompa
+    }
+    
+    th {
+        background-color: #eee;
+        color: $color-text-dark;
+    }
+    
+    .clase-disponible {
+        background-color: lighten($color-primary, 40%);
+        font-weight: bold;
+    }
+}

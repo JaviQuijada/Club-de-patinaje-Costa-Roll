@@ -1,0 +1,44 @@
+@use "../2_utilities/variables" as *;
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@mixin responsive-grid($min-width) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+    gap: 2rem;
+}
+
+////////////////////////////////////
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@mixin responsive-grid($min-width) {
+    display: grid;
+    // Mobile-First: Una columna por defecto
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    
+    // A partir del tamaño 'md' (tablet horizontal y superior), aplica el grid flexible
+    @media (min-width: $breakpoint-md) {
+        grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+    }
+}

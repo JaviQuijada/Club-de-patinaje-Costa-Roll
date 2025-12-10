@@ -1,0 +1,33 @@
+// 1. Utilities (Variables y Mixins primero)
+@use '2_utilities/variables';
+@use '2_utilities/mixins';
+@use '2_utilities/functions';
+
+// 2. Base (Reset y Tipografía)
+@use '1_base/reset';
+@use '1_base/typography';
+@use '1_base/base';
+
+// 3. Layout (Estructura principal)
+@use '3_layout/main';
+@use '3_layout/header';
+@use '3_layout/footer';
+@use '3_layout/grid';
+
+// 4. Components (Módulos reutilizables)
+@use '4_components/hero';
+@use '4_components/buttons';
+@use '4_components/cards';
+@use '4_components/table';
+@use '4_components/forms';
+@use '4_components/modal';
+
+// 5. Pages (Estilos específicos de página)
+@use '5_pages/home';
+@use '5_pages/eventos';
+@use '5_pages/clases';
+@use '5_pages/galeria';
+@use '5_pages/merchandising';
+@use '5_pages/contacto';
+@use '5_pages/login';
+@use '5_pages/registro';
