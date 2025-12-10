@@ -3,7 +3,7 @@ img {
 }
 
 .header {
-  background-color: #2b9eb3;
+  background-color: #7ebdc2;
   padding: 1rem 0;
 }
 .header__contenedor {
@@ -23,7 +23,7 @@ img {
   position: absolute;
   top: 70px;
   left: 0;
-  background-color: rgb(239.4938016529, 158.326446281, 3.0061983471);
+  background-color: rgb(21.4772727273, 19.0227272727, 19.6363636364);
   padding: 1rem 0;
   z-index: 100;
 }
@@ -49,7 +49,7 @@ img {
   margin-left: 1.5rem;
 }
 .header__nav-lista a {
-  color: #fcab10;
+  color: #231f20;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
@@ -58,16 +58,16 @@ img {
   color: #fcab10;
 }
 .header__btn-registro {
-  background-color: #2b9eb3;
+  background-color: #fcab10;
   padding: 0.5rem 1rem;
   border-radius: 5px;
 }
 .header__btn-registro:hover {
-  background-color: rgb(33.1216216216, 121.7027027027, 137.8783783784);
+  background-color: rgb(214.3099173554, 141.6776859504, 2.6900826446);
 }
 
 .header {
-  background-color: #2b9eb3;
+  background-color: #7ebdc2;
   padding: 1rem 0;
 }
 .header__contenedor {
@@ -139,7 +139,7 @@ img {
   top: 70px;
   left: 0;
   z-index: 10;
-  background-color: #2b9eb3;
+  background-color: #bb4430;
   padding: 1rem;
 }
 
@@ -155,7 +155,7 @@ img {
 }
 
 .escuela-card {
-  background-color: #44af69;
+  background-color: #7ebdc2;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -210,10 +210,10 @@ img {
 }
 .tabla-horarios th {
   background-color: #eee;
-  color: #e8333c;
+  color: #231f20;
 }
 .tabla-horarios .clase-disponible {
-  background-color: rgb(187.2702702703, 230.7837837838, 238.7297297297);
+  background-color: rgb(240.4978723404, 204.5446808511, 198.5021276596);
   font-weight: bold;
 }
 
@@ -221,7 +221,7 @@ img {
   max-width: 450px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #44af69;
+  background-color: #7ebdc2;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -232,7 +232,7 @@ img {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
-  color: #e8333c;
+  color: #231f20;
 }
 .formulario-login__input, .formulario-login__textarea, .formulario-login__input-file, .formulario-registro__input, .formulario-registro__textarea, .formulario-registro__input-file {
   width: 100%;
@@ -243,7 +243,7 @@ img {
   transition: border-color 0.3s;
 }
 .formulario-login__input:focus, .formulario-login__textarea:focus, .formulario-login__input-file:focus, .formulario-registro__input:focus, .formulario-registro__textarea:focus, .formulario-registro__input-file:focus {
-  border-color: #2b9eb3;
+  border-color: #bb4430;
   outline: none;
 }
 .formulario-login__input:invalid:not(:focus):not(:placeholder-shown), .formulario-login__textarea:invalid:not(:focus):not(:placeholder-shown), .formulario-login__input-file:invalid:not(:focus):not(:placeholder-shown), .formulario-registro__input:invalid:not(:focus):not(:placeholder-shown), .formulario-registro__textarea:invalid:not(:focus):not(:placeholder-shown), .formulario-registro__input-file:invalid:not(:focus):not(:placeholder-shown) {
@@ -255,19 +255,19 @@ img {
   margin-top: 2rem;
 }
 .formulario-login__btn-submit, .formulario-registro__btn-submit {
-  background-color: #2b9eb3;
-  color: #44af69;
+  background-color: #bb4430;
+  color: #7ebdc2;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 .formulario-login__btn-submit:hover, .formulario-registro__btn-submit:hover {
-  background-color: rgb(33.1216216216, 121.7027027027, 137.8783783784);
+  background-color: rgb(146.4170212766, 53.2425531915, 37.5829787234);
 }
 .formulario-login__btn-reset, .formulario-registro__btn-reset {
   background-color: #6c757d;
-  color: #44af69;
+  color: #7ebdc2;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 4px;
@@ -277,7 +277,7 @@ img {
   background-color: rgb(84.3605150215, 91.3905579399, 97.6394849785);
 }
 .formulario-login__enlace-olvido, .formulario-login__enlace-registro, .formulario-registro__enlace-olvido, .formulario-registro__enlace-registro {
-  color: #2b9eb3;
+  color: #bb4430;
   text-decoration: none;
 }
 .formulario-login__enlace-olvido:hover, .formulario-login__enlace-registro:hover, .formulario-registro__enlace-olvido:hover, .formulario-registro__enlace-registro:hover {
