@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quienes somos | Q-roll</title>
+    <link rel="stylesheet" href="css/style.css" />
+    
+    <meta name="description" content="Descubre nuestra academia de patinaje y sus monitores" />
+    <meta property="og:title" content="Quienes somos | Q-roll" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="URL_DE_LA_PAGINA" /> 
+    <meta property="og:image" content="URL_DE_TU_IMAGEN_DE_PREVISUALIZACION" />
+    <meta property="og:image:alt" content="Equipo de monitores Q-roll" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#fafafa" />
+    
+    </head>
+
+<body class="general">
+    
+    <header class="header">
+        <div class="header__contenedor">
+            <div class="header__logo">
+                <figure class="header__logo-img">
+                    <img src="img/logo-costaroll.png" alt="Logotipo Costa Roll" />
+                </figure>
+            </div>
+            
+            <button class="header__menu-toggle" aria-label="Abrir menú de navegación">☰</button> 
+  
+            <nav class="header__nav">
+                <ul class="header__nav-lista header__nav-lista--general">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="clases.html">Clases</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+                    <li><a href="merchandising.html">Merchandising</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+  
+                <ul class="header__nav-lista header__nav-lista--usuario">
+                    <li><a href="login.html">Login</a></li>
+                    <li>
+                        <a href="registro.html" class="header__btn-registro">Regístrate</a>
+                    </li>
+                </ul>
+            </nav> 
+            </div>
+    </header>
+    <div class="separador">
+        <img src="./img/baliza.png" alt="Separador visual de baliza" />
+    </div>
+
+    <main class="main">
+        <div class="main__contenedor">
+            
+            <section class="introduccion">
+                <div class="introduccion__texto">
+                    <h1>Descubre el equipo que forma <em>Q-roll</em></h1>
+                    <p>
+                        Nuestra escuela de patinaje está formada por un equipo serio, profesional y con muchos años de experiencia en el mundo del patinaje. Nos apasiona enseñar y acompañar a cada alumno en su proceso de aprendizaje, siempre desde la motivación, la paciencia y el compromiso.
+                    </p>
+                    <p>
+                        Creemos que cualquier persona puede disfrutar del patinaje, sin importar su edad o nivel. Por eso, nuestro equipo está preparado para guiar, apoyar y animar a todo aquel que desee unirse a nuestras clases. Aquí encontrarás un ambiente seguro, dinámico y positivo, donde aprenderás, mejorarás y, sobre todo, ¡te divertirás sobre ruedas!
+                    </p>
+                </div>
+
+                <figure class="introduccion__foto">
+                    <img 
+                        class="introduccion__imagen"
+                        src="img/grupo.png"
+                        alt="Foto de grupo del equipo de Q-roll patinando"
+                        srcset="img/grupo.png 400w, img/grupo.png 800w, img/grupo.png 1200w"
+                    />
+                </figure>
+            </section>
+
+            <div class="separador">
+                <img src="./img/baliza.png" alt="Separador visual de baliza" />
+            </div>
+
+            <section class="equipo">
+                <div class="equipo__encabezado">
+                    <p class="equipo__lema">Aprende a patinar con los <span>mejores!!!</span></p>
+                    <h2 class="equipo__titulo">EQUIPO DE Q-ROLL</h2>
+                </div>
+                
+                <div class="equipo__tarjetas-contenedor">
+                    
+                    <article class="monitor-card">
+                        <h3 class="monitor-card__nombre">UANI</h3>
+                        <figure class="monitor-card__foto">
+                            <img class="redonda" src="img/quienes-somos/Uani.png" alt="Foto del monitor Uani" />
+                        </figure>
+                    </article>
+                    
+                    <article class="monitor-card">
+                        <h3 class="monitor-card__nombre">DARIO</h3>
+                        <figure class="monitor-card__foto">
+                            <img class="redonda" src="img/quienes-somos/dario.png" alt="Foto del monitor Dario" />
+                        </figure>
+                    </article>
+                    
+                    <article class="monitor-card">
+                        <h3 class="monitor-card__nombre">JAVI</h3>
+                        <figure class="monitor-card__foto">
+                            <img class="redonda" src="img/quienes-somos/javi.png" alt="Foto del monitor Javi" />
+                        </figure>
+                    </article>
+                    
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <div class="separador">
+        <img src="./img/baliza.png" alt="Separador visual de baliza" />
+    </div>
+
+    <footer class="footer">
+        <div class="footer__contenedor">
+            <img class="footer__logo" src="./img/logo.png" alt="Logotipo Q-roll" />
+            <p class="footer__aviso-legal">
+                <span class="footer__derechos">® Q-roll Escuela</span> - 
+                <a href="aviso-legal.html" class="footer__enlace-aviso">Aviso legal</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Identificar el botón y el menú
+            const menuToggle = document.querySelector('.header__menu-toggle');
+            const nav = document.querySelector('.header__nav');
+  
+            if (menuToggle && nav) {
+                // 2. Escuchar el evento de clic
+                menuToggle.addEventListener('click', function() {
+                    // 3. Añadir/Quitar la clase 'is-active' al menú
+                    nav.classList.toggle('is-active');
+  
+                    // (Opcional) Cambiar el ícono del botón
+                    const isExpanded = nav.classList.contains('is-active');
+                    menuToggle.setAttribute('aria-expanded', isExpanded);
+                    menuToggle.textContent = isExpanded ? '✕' : '☰'; 
+                });
+            }
+        });
+    </script>
+</body>
+</html>

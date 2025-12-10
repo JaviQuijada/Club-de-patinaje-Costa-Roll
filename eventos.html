@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eventos | Costa Roll</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <meta name="description" content="Calendario de eventos, competiciones y actividades del Club Deportivo Costa Roll." />
+    <meta property="og:title" content="Eventos | Costa Roll" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Road+Rage&family=Roboto+Slab:wght@100..900&display=swap"
+        rel="stylesheet"
+    />
+</head>
+
+<body class="pagina-eventos">
+    
+    <header class="header">
+        <div class="header__contenedor">
+            <div class="header__logo">
+                <figure class="header__logo-img">
+                    <img src="./img/logo-costarrol.png" alt="Logotipo Costa Roll" />
+                </figure>
+            </div>
+            
+            <button class="header__menu-toggle" aria-label="Abrir menú de navegación">☰</button> 
+  
+            <nav class="header__nav">
+                <ul class="header__nav-lista header__nav-lista--general">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="clases.html">Clases</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+                    <li><a href="merchandising.html">Merchandising</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+  
+                <ul class="header__nav-lista header__nav-lista--usuario">
+                    <li><a href="login.html">Login</a></li>
+                    <li>
+                        <a href="registro.html" class="header__btn-registro">Regístrate</a>
+                    </li>
+                </ul>
+            </nav> 
+            </div>
+    </header>
+
+    <main class="main">
+
+        <section class="hero-eventos">
+            <div class="hero-eventos__contenedor">
+                <div class="hero-eventos__contenido">
+                    <h1 class="hero-eventos__titulo">¡No te Pierdas la Acción de Costa Roll!</h1>
+                    <p class="hero-eventos__texto">
+                        En Costa Roll, los eventos son el corazón de nuestra comunidad. Desde *quedadas* sociales para patinar al atardecer,
+                        hasta competiciones de *Slalom* y *Freestyle*, pasando por *Rutas Urbanas* y *Talleres* especiales.
+                        Nuestros eventos son la excusa perfecta para rodar, aprender y compartir la pasión por el patinaje con otros aficionados.
+                        ¡Revisa el calendario y únete a la próxima aventura!
+                    </p>
+                    <a href="#calendario" class="hero-eventos__btn-ver">Ver Calendario de Eventos</a>
+                </div>
+                
+                <figure class="hero-eventos__imagen">
+                    <img src="./img/hero-eventos-principal.png" alt="Grupo de patinadores en un evento del club" />
+                </figure>
+            </div>
+        </section>
+
+        <section class="seccion-calendario" id="calendario">
+            <h2 class="seccion-calendario__titulo">Calendario de Próximos Eventos</h2>
+            
+            <div class="calendario__contenedor">
+                <div class="calendario__navegacion">
+                    <button class="calendario__btn-mes" aria-label="Mes anterior"> &lt; </button>
+                    <h3 class="calendario__mes-actual">Diciembre 2025</h3>
+                    <button class="calendario__btn-mes" aria-label="Mes siguiente"> &gt; </button>
+                </div>
+
+                <div class="calendario__dias-semana">
+                    <span>Dom</span>
+                    <span>Lun</span>
+                    <span>Mar</span>
+                    <span>Mié</span>
+                    <span>Jue</span>
+                    <span>Vie</span>
+                    <span>Sáb</span>
+                </div>
+
+                <div class="calendario__dias-mes">
+                    <span class="dia-vacio"></span>
+                    <span class="dia-vacio"></span>
+                    
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    
+                    <button class="dia-evento" data-event-id="e5" data-dia="5">
+                        5
+                    </button>
+
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+
+                    <button class="dia-evento" data-event-id="e10" data-dia="10">
+                        10
+                    </button>
+                    
+                    <span>11</span>
+                    <span>12</span>
+                    
+                    <button class="dia-evento" data-event-id="e15" data-dia="15">
+                        15
+                    </button>
+
+                    <span>16</span>
+                    <span>17</span>
+                    <span>18</span>
+                    <span>19</span>
+                    <span>20</span>
+                    <span>21</span>
+                    <span>22</span>
+                    <span>23</span>
+                    <span>24</span>
+                    <span>25</span>
+                    <span>26</span>
+
+                    <button class="dia-evento" data-event-id="e28" data-dia="28">
+                        28
+                    </button>
+
+                    <span>29</span>
+                    <span>30</span>
+                    <span>31</span>
+                </div>
+            </div>
+
+            <div id="modal-evento" class="modal-evento" aria-hidden="true">
+                <div class="modal-evento__contenido">
+                    <button class="modal-evento__cerrar" aria-label="Cerrar">&times;</button>
+                    <h4 class="modal-evento__titulo">Detalles del Evento</h4>
+                    <p class="modal-evento__fecha">Fecha: <span id="evento-fecha"></span></p>
+                    <p class="modal-evento__nombre">Nombre: <strong id="evento-nombre">Ruta de Navidad</strong></p>
+                    <p class="modal-evento__descripcion">Descripción: <span id="evento-descripcion">Ruta de patinaje por el paseo marítimo con temática navideña. Trae tu gorro de Papá Noel!</span></p>
+                    <p class="modal-evento__hora">Hora: <span id="evento-hora">18:00h</span></p>
+                    <a href="registro-evento.html" class="modal-evento__btn-registro">Inscribirse al Evento</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-monitores">
+            <h2 class="seccion-monitores__titulo">Nuestros Monitores y Líderes de Eventos</h2>
+            <p class="seccion-monitores__subtitulo">Conoce a los profesionales que hacen posible cada actividad y te ayudarán a mejorar.</p>
+            
+            <div class="seccion-monitores__contenedor-cards">
+                
+                <article class="monitor-card">
+                    <figure class="monitor-card__foto">
+                        <img src="./img/uani.png" alt="Foto del monitor A" />
+                    </figure>
+                    <h3 class="monitor-card__nombre">Uani. (Freestyle)</h3>
+                    <p class="monitor-card__descripcion">Especialista en *Agresivo* y organización de eventos de precisión. Con mas de 20 años de experiencia.</p>
+                </article>
+
+                <article class="monitor-card">
+                    <figure class="monitor-card__foto">
+                        <img src="./img/camacho.png" alt="Foto del monitor B" />
+                    </figure>
+                    <h3 class="monitor-card__nombre">Camacho. (Rutas Urbanas)</h3>
+                    <p class="monitor-card__descripcion">Líder de nuestras rutas urbanas semanales y experto en mantenimiento de material.</p>
+                </article>
+
+                <article class="monitor-card">
+                    <figure class="monitor-card__foto">
+                        <img src="./img/quijada.png" alt="Foto del monitor C" />
+                    </figure>
+                    <h3 class="monitor-card__nombre">Quijada. (Iniciación)</h3>
+                    <p class="monitor-card__descripcion">Encargado de las clases de iniciación y talleres básicos. ¡La paciencia en persona!</p>
+                </article>
+
+                <article class="monitor-card">
+                    <figure class="monitor-card__foto">
+                        <img src="./img/lorena.png" alt="Foto del monitor D" />
+                    </figure>
+                    <h3 class="monitor-card__nombre">Lorena. (Roller Dance)</h3>
+                    <p class="monitor-card__descripcion">Profesionas del baile y  performance en patines. ¡Diversion asegurada!</p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="seccion-galeria-eventos">
+            <h2 class="seccion-galeria-eventos__titulo">Momentos Épicos de Eventos Pasados</h2>
+            <p class="seccion-galeria-eventos__subtitulo">Una muestra de la energía y diversión que se vive en cada actividad del club.</p>
+            
+            <div class="seccion-galeria-eventos__grid">
+                <article class="galeria-item"><img src="./img/imagen1.png" alt="Foto de evento 1" /></article>
+                <article class="galeria-item"><img src="./img/imagen2.png" alt="Foto de evento 2" /></article>
+                <article class="galeria-item"><img src="./img/imagen3.png" alt="Foto de evento 3" /></article>
+                <article class="galeria-item"><img src="./img/imagen4.png" alt="Foto de evento 4" /></article>
+                <article class="galeria-item"><img src="./img/imagen5.png" alt="Foto de evento 5" /></article>
+                <article class="galeria-item"><img src="./img/imagen6.png" alt="Foto de evento 6" /></article>
+                <article class="galeria-item"><img src="./img/imagen7.png" alt="Foto de evento 7" /></article>
+                <article class="galeria-item"><img src="./img/imagen8.png" alt="Foto de evento 8" /></article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer__contenedor">
+            <figure class="footer__logo">
+                <img src="./img/logo-costarrol.png" alt="Logotipo pequeño Costa Roll" />
+            </figure>
+
+            <p class="footer__info">
+                <span class="footer__derechos">® Costa Roll Club Deportivo</span>
+                <span>|</span>
+                <a href="aviso-legal.html" class="footer__enlace-aviso">Aviso legal</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Identificar el botón y el menú
+            const menuToggle = document.querySelector('.header__menu-toggle');
+            const nav = document.querySelector('.header__nav');
+  
+            if (menuToggle && nav) {
+                // 2. Escuchar el evento de clic
+                menuToggle.addEventListener('click', function() {
+                    // 3. Añadir/Quitar la clase 'is-active' al menú
+                    nav.classList.toggle('is-active');
+  
+                    // (Opcional) Cambiar el ícono del botón
+                    const isExpanded = nav.classList.contains('is-active');
+                    menuToggle.setAttribute('aria-expanded', isExpanded);
+                    menuToggle.textContent = isExpanded ? '✕' : '☰'; 
+                });
+            }
+        });
+    </script>
+    </body>
+</html>
