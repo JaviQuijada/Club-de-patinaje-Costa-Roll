@@ -4,56 +4,108 @@
 .header {
     background-color: $color-text-light;
     padding: 1rem 0;
+
     
+    // Contenedor principal
     &__contenedor {
         @include container;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
+
+
     }
     
+    // Logo
     &__logo-img img {
-        height: 50px; // Ajusta el tamaño de tu logo
+        object-fit: cover;
+        width: 100%;
+        height: 100px;
     }
+
+    // Botón de Hamburguesa (para móvil)
+    &__menu-toggle {
+        display: block; // Visible en móvil
+        color: $color-secondary;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        @media (min-width: $breakpoint-xl) {
+            display: none; // Oculto en escritorio
+        }
+    }
+    
+    // El NAV completo (Menú)
     &__nav {
-        display: none; // <--- ESTO OCULTA EL MENÚ EN MÓVIL POR DEFECTO
-        width: 100%; 
-        position: absolute; // Para que cubra toda la página debajo del header
-        top: 70px; // Ajusta según la altura de tu header
-        left: 0;
-        background-color: darken($color-text-dark, 5%); // Fondo oscuro para el menú
-        padding: 1rem 0;
-        z-index: 100;
-        
-        // Estilo cuando se hace visible con JS
+        // Por defecto, oculto en móvil
+        display: none; 
+        width: 100%; // Ocupa todo el ancho si se activa
+
+        // Estilo del menú cuando JS añade la clase 'is-active' (Móvil abierto)
         &.is-active {
-            display: block; // <--- ESTO LO MUESTRA CUANDO JS AÑADE LA CLASE
+            display: block; 
+            position: absolute; // Para colapsar sobre el contenido
+            top: 130px; // Ajusta según la altura de tu header
+            left: 0;
+            z-index: 100;
+            background-color: darken($color-text-dark, 5%); // O $color-primary
+            padding: 1rem 0;
         }
 
-        @media (min-width: $breakpoint-lg) {
-            display: flex; // Siempre visible en escritorio (anula las reglas de móvil)
-            position: static;
+        // Estilos de Escritorio
+        @media (min-width: $breakpoint-xl) {
+            display: flex; // Siempre visible en escritorio
+            position: static; // Vuelve al flujo normal
             background-color: transparent;
             width: auto;
+            justify-content: flex-end;
+            align-items: center;
         }
     }
     
+    // Lista de enlaces (UL)
     &__nav-lista {
         display: flex;
         list-style: none;
         padding: 0;
-        flex-direction: column; 
-        padding: 0 1rem;
-        
-        &--general li, &--usuario li {
-            margin-left: 1.5rem;
+        flex-direction: column; // Apilado vertical en móvil
+        padding: 0 1rem; // Padding interno para el menú colapsado
+        @media (min-width: $breakpoint-xl) {
+            flex-direction: row;
+        }
+
+        // Separación entre las listas (ej. general y usuario)
+        &--general {
+            margin-bottom: 1rem; // Separación en móvil
+            
+            @media (min-width: $breakpoint-xl) {
+                margin-bottom: 0;
+                margin-right: 2rem;
+            }
         }
         
+        // Items de la lista (LI)
+        li {
+            list-style: none;
+            margin: 0.5rem 0; // Margen vertical en móvil (más consistente que margin-left)
+            
+            @media (min-width: $breakpoint-xl) {
+                margin: 0 1rem; // Margen horizontal en escritorio
+            }
+        }
+        
+        // Enlaces (A)
         a {
-            color: $color-text-dark;
+            color: $color-text-light; // Cambiado para que se vea bien en fondo oscuro de nav colapsado
             text-decoration: none;
             text-transform: uppercase;
             font-weight: bold;
+
+            @media (min-width: $breakpoint-xl) {
+                 color: $color-text-dark; // Vuelve a color oscuro en escritorio
+            }
 
             &:hover {
                 color: $color-secondary;
@@ -71,94 +123,13 @@
             background-color: darken($color-secondary, 10%);
         }
     }
-}
-
-
-/////////////////////////////////////////////////////
-
-
-
-
-.header {
-    background-color: $color-text-light;
-    padding: 1rem 0;
-    
-    &__contenedor {
-        @include container;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    &__logo-img img {
-        height: 50px;
-    }
-
-    // El NAV completo
-    &__nav {
-        // Por defecto, ocultamos la navegación general en móvil (para mostrar un botón de hamburguesa)
-        display: none; // Ocultamos el nav principal en móvil
-        width: 100%; // Ocupa todo el ancho cuando se muestre (en modo colapsado)
-
-        @media (min-width: $breakpoint-lg) {
-            display: flex; // Mostramos en escritorio
-            width: auto;
-            justify-content: flex-end;
-            align-items: center;
-        }
-    }
-    
-    &__nav-lista {
-        display: flex;
-        flex-direction: column; // Apilado vertical en móvil
-
-        @media (min-width: $breakpoint-lg) {
-            flex-direction: row; // Horizontal en escritorio
-        }
-
-        &--general {
-            margin-bottom: 1rem; // Separación entre general y usuario en móvil
-            
-            @media (min-width: $breakpoint-lg) {
-                margin-bottom: 0;
-                margin-right: 2rem;
-            }
-        }
-        
-        li {
-            list-style: none;
-            margin: 0.5rem 0; // Margen vertical en móvil
-            
-            @media (min-width: $breakpoint-lg) {
-                margin: 0 1rem; // Margen horizontal en escritorio
-            }
+    .auxiliar {
+        font-size: 20px;
+        @media (min-width: $breakpoint-xl) {
+            display: none;
         }
 
     }
-    
-    // --- NUEVO: Botón de Hamburguesa (Solo visible en móvil) ---
-    &__menu-toggle {
-        display: block; // Visible por defecto en móvil
-        color: $color-secondary;
-        font-size: 2rem;
-        background: none;
-        border: none;
-        cursor: pointer;
 
-        @media (min-width: $breakpoint-lg) {
-            display: none; // Oculto en escritorio
-        }
-    }
-
-
-    .header__nav.is-active {
-        display: block;
-        position: absolute;
-        top: 70px; // Altura del header
-        left: 0;
-        z-index: 10;
-        background-color: $color-primary;
-        padding: 1rem;
-    }
 
 }

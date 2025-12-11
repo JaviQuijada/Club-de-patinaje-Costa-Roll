@@ -1,0 +1,12 @@
+@use "../2_utilities/variables" as *;
+@use "../2_utilities/mixins" as *;
+
+
+
+h1, h2 , h3 {
+    font-family: $font-family-primary;
+}
+
+p {
+    font-family: $font-family-secondary;
+}

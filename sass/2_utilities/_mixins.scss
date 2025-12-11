@@ -42,3 +42,42 @@
         grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
     }
 }
+
+@mixin button-gradient(
+  $color-start: #84a59d,  // Color 1: Verde/Gris
+  $color-end: #f28482,    // Color 2: Salmón/Naranja
+  $radius: 50px,          // Radio para la apariencia redondeada
+  $text-color: #fff       // Color de texto
+) {
+  
+  // 1. Estilos Base del Botón/Enlace
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  
+  // 2. Apariencia y Contraste
+  border-radius: $radius;
+  color: $text-color;
+  font-weight: bold;
+  text-align: center;
+
+  // 3. Gradiente Inicial (Color 1 -> Color 2)
+  background-image: linear-gradient(to right, $color-start, $color-end);
+  
+  // 4. Transición Suave
+  // Aplicamos la transición a 'background-image' y 'transform' para un efecto visual completo
+  transition: all 0.3s ease-in-out;
+  
+  // 5. Estado Hover/Tap (Inversión de Colores)
+  &:hover,
+  &:focus {
+    // Invertimos los colores: (Color 2 -> Color 1)
+    background-image: linear-gradient(to right, $color-end, $color-start);
+    
+    // Opcional: Pequeño efecto 3D para darle vida al botón
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
