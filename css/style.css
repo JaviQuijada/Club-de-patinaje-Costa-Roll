@@ -288,4 +288,55 @@ main a:hover, main a:focus {
   text-decoration: underline;
 }
 
+.seccion-galeria-eventos__grid {
+  display: flex;
+  overflow-x: scroll;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  scrollbar-width: none;
+}
+.seccion-galeria-eventos__grid::-webkit-scrollbar {
+  display: none;
+}
+
+.galeria-item {
+  flex-grow: 0;
+  width: 300px;
+  scroll-snap-align: start;
+}
+
+.galeria-item img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.galeria-historica__grid {
+  display: flex;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.galeria-historica__grid::-webkit-scrollbar {
+  display: none;
+}
+.galeria-historica__grid {
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.galeria-item {
+  flex-shrink: 0;
+}
+
+.galeria-item__imagen img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
 /*# sourceMappingURL=style.css.map */
