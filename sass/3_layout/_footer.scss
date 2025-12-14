@@ -1,0 +1,16 @@
+@use "../2_utilities/variables" as *;
+
+
+
+footer .footer{
+&__contenedor{
+    background-color: $color-text-light;
+    width: 100%;
+  overflow: hidden;
+}
+    &__logo img {
+        object-fit: cover;
+        height: 48vh;
+        width: 100%; 
+    }
+}

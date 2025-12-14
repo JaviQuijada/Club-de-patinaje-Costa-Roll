@@ -24,7 +24,7 @@
         <div class="header__contenedor">
             <div class="header__logo">
                 <figure class="header__logo-img">
-                    <img src="./img/logo-costarrol.png" alt="Logotipo Costa Roll" />
+                    <img src="./img/logo-costa-soul.png" alt="Logotipo Costa Roll" />
                 </figure>
             </div>
             
@@ -75,71 +75,73 @@
         <section class="seccion-calendario" id="calendario">
             <h2 class="seccion-calendario__titulo">Calendario de Próximos Eventos</h2>
             
-            <div class="calendario__contenedor">
-                <div class="calendario__navegacion">
-                    <button class="calendario__btn-mes" aria-label="Mes anterior"> &lt; </button>
-                    <h3 class="calendario__mes-actual">Diciembre 2025</h3>
-                    <button class="calendario__btn-mes" aria-label="Mes siguiente"> &gt; </button>
+            <div class="calendario-contenedor">
+                <div class="calendario-header">
+                    <button class="prev-mes">«</button>
+                    <h2 class="mes-actual">Diciembre 2025</h2>
+                    <button class="next-mes">»</button>
                 </div>
-
-                <div class="calendario__dias-semana">
-                    <span>Dom</span>
-                    <span>Lun</span>
-                    <span>Mar</span>
-                    <span>Mié</span>
-                    <span>Jue</span>
-                    <span>Vie</span>
-                    <span>Sáb</span>
-                </div>
-
-                <div class="calendario__dias-mes">
-                    <span class="dia-vacio"></span>
-                    <span class="dia-vacio"></span>
-                    
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span>4</span>
-                    
-                    <button class="dia-evento" data-event-id="e5" data-dia="5">
-                        5
-                    </button>
-
-                    <span>6</span>
-                    <span>7</span>
-                    <span>8</span>
-
-                    <button class="dia-evento" data-event-id="e10" data-dia="10">
-                        10
-                    </button>
-                    
-                    <span>11</span>
-                    <span>12</span>
-                    
-                    <button class="dia-evento" data-event-id="e15" data-dia="15">
-                        15
-                    </button>
-
-                    <span>16</span>
-                    <span>17</span>
-                    <span>18</span>
-                    <span>19</span>
-                    <span>20</span>
-                    <span>21</span>
-                    <span>22</span>
-                    <span>23</span>
-                    <span>24</span>
-                    <span>25</span>
-                    <span>26</span>
-
-                    <button class="dia-evento" data-event-id="e28" data-dia="28">
-                        28
-                    </button>
-
-                    <span>29</span>
-                    <span>30</span>
-                    <span>31</span>
-                </div>
+                <table class="calendario-grid">
+                    <thead>
+                        <tr>
+                            <th>Dom</th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="dia-pasado">30</td>
+                            
+                            <td class="dia-actual">1</td>
+                            <td class="dia-activo">2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                            <td>17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>28</td>
+                            <td>29</td>
+                            <td>30</td>
+                            <td>31</td>
+                            
+                            <td class="dia-pasado">1</td>
+                            <td class="dia-pasado">2</td>
+                            <td class="dia-pasado">3</td>
+                        </tr>
+                        
+                        </tbody>
+                </table>
             </div>
 
             <div id="modal-evento" class="modal-evento" aria-hidden="true">
@@ -210,6 +212,11 @@
                 <article class="galeria-item"><img src="./img/imagen7.png" alt="Foto de evento 7" /></article>
                 <article class="galeria-item"><img src="./img/imagen8.png" alt="Foto de evento 8" /></article>
             </div>
+            <div class="modal-galeria" id="modalGaleria">
+                <span class="modal-galeria__cerrar">&times;</span>
+                <img class="modal-galeria__contenido" id="imgModal">
+                <div class="modal-galeria__caption" id="captionModal"></div>
+            </div>
         </section>
 
     </main>
@@ -217,7 +224,7 @@
     <footer class="footer">
         <div class="footer__contenedor">
             <figure class="footer__logo">
-                <img src="./img/logo-costarrol.png" alt="Logotipo pequeño Costa Roll" />
+                <img src="./img/logo-costa-soul.png" alt="Logotipo pequeño Costa Roll" />
             </figure>
 
             <p class="footer__info">
@@ -244,6 +251,49 @@
                     menuToggle.setAttribute('aria-expanded', isExpanded);
                     menuToggle.textContent = isExpanded ? '✕' : '☰'; 
                 });
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- 1. REFERENCIAS A LOS ELEMENTOS DEL MODAL ---
+            const modal = document.getElementById("modalGaleria");
+            const modalImg = document.getElementById("imgModal");
+            const captionText = document.getElementById("captionModal");
+            const spanClose = document.querySelector(".modal-galeria__cerrar");
+    
+            // --- 2. SELECCIÓN DE IMÁGENES DE LA GALERÍA ---
+            // Este selector busca todas las <img> dentro de cualquier elemento con la clase "galeria-item".
+            const galeriaItems = document.querySelectorAll(".galeria-item img");
+    
+            // --- 3. LÓGICA DE APERTURA ---
+            galeriaItems.forEach(img => {
+                img.onclick = function() {
+                    // Muestra el modal (el SCSS lo posiciona)
+                    modal.style.display = "block";
+                    
+                    // Carga la imagen grande y su descripción
+                    modalImg.src = this.src;
+                    modalImg.alt = this.alt;
+                    captionText.innerHTML = this.alt;
+                }
+            });
+    
+            // --- 4. LÓGICA DE CIERRE ---
+            
+            // Cierra al hacer click en la 'X'
+            if (spanClose) { 
+                spanClose.onclick = function() {
+                    modal.style.display = "none";
+                }
+            }
+    
+            // Cierra al hacer click en el fondo oscuro
+            modal.onclick = function(event) {
+                // Solo cierra si el clic fue en el fondo (el div.modal-galeria)
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
             }
         });
     </script>

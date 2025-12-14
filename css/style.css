@@ -1,3 +1,4 @@
+@charset "UTF-8";
 h1, h2, h3 {
   font-family: "Bebas Neue", sans-serif;
 }
@@ -12,11 +13,18 @@ img {
 
 main {
   text-align: center;
+  padding-top: 80px;
+  background-image: url(../img/backgroun-main.png);
 }
 
 .header {
   background-color: #7ebdc2;
   padding: 1rem 0;
+  height: 7vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 .header__contenedor {
   max-width: 100%;
@@ -26,10 +34,14 @@ main {
   justify-content: space-between;
   align-items: flex-start;
 }
+.header__logo-img {
+  margin: 0;
+}
 .header__logo-img img {
   object-fit: cover;
-  width: 100%;
-  height: 100px;
+  max-width: none;
+  width: 23vh;
+  height: 7vh;
 }
 .header__menu-toggle {
   display: block;
@@ -51,11 +63,11 @@ main {
 .header__nav.is-active {
   display: block;
   position: absolute;
-  top: 130px;
-  left: 0;
+  top: 94px;
+  right: 0;
   z-index: 100;
   background-color: rgb(21.4772727273, 19.0227272727, 19.6363636364);
-  padding: 1rem 0;
+  width: 50%;
 }
 @media (min-width: 1290px) {
   .header__nav {
@@ -126,6 +138,17 @@ main {
   .header .auxiliar {
     display: none;
   }
+}
+
+footer .footer__contenedor {
+  background-color: #7ebdc2;
+  width: 100%;
+  overflow: hidden;
+}
+footer .footer__logo img {
+  object-fit: cover;
+  height: 48vh;
+  width: 100%;
 }
 
 main a {
@@ -313,6 +336,140 @@ main a:hover, main a:focus {
   object-fit: cover;
 }
 
+.modal-galeria {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: auto;
+  padding-top: 50px;
+}
+
+.modal-galeria__contenido {
+  margin: auto;
+  display: block;
+  width: 90%;
+  max-width: 900px;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.modal-galeria__cerrar {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-galeria__caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+}
+
+.calendario-contenedor {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: "Arial", sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  overflow: hidden;
+}
+
+.calendario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #bb4430;
+  color: white;
+}
+.calendario-header .mes-actual {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.calendario-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background-color 0.2s;
+}
+.calendario-header button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.calendario-grid {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+.calendario-grid thead th {
+  background-color: #7ebdc2;
+  color: white;
+  padding: 10px 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.85em;
+}
+.calendario-grid tbody td {
+  padding: 10px 5px;
+  height: 50px;
+  border: 1px solid #f4f4f4;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s, color 0.2s;
+  color: #333333;
+}
+.calendario-grid tbody td:hover:not(.dia-pasado) {
+  background-color: white;
+}
+.calendario-grid .dia-pasado {
+  color: #aaaaaa;
+  background-color: #fafafa;
+  cursor: default;
+}
+.calendario-grid .dia-actual {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  border: 2px solid #bb4430;
+  border-radius: 50%;
+}
+.calendario-grid .dia-activo {
+  background-color: #fcab10;
+  color: white;
+  font-weight: bold;
+}
+.calendario-grid .dia-activo::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgb(189.1260330579, 125.0289256198, 2.3739669421);
+}
+
 .galeria-historica__grid {
   display: flex;
   overflow-x: scroll;
@@ -337,6 +494,66 @@ main a:hover, main a:focus {
   width: 100%;
   height: 200px;
   object-fit: cover;
+}
+
+.modal-galeria {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Posición fija para cubrir toda la pantalla */
+  z-index: 9999; /* Asegura que esté por encima de todo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Permite scroll si la imagen es muy grande */
+  background-color: rgba(0, 0, 0, 0.9); /* Fondo negro semitransparente */
+  padding-top: 50px; /* Espacio para el botón de cerrar */
+}
+
+.modal-galeria__contenido {
+  margin: auto;
+  display: block;
+  width: 90%;
+  max-width: 900px;
+  max-height: 90%; /* Limita la altura para que quepa en móviles */
+  object-fit: contain; /* Asegura que la imagen quepa sin recorte */
+}
+
+.modal-galeria__cerrar {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.modal-galeria__cerrar:hover, .modal-galeria__cerrar:focus {
+  color: #bbb;
+}
+
+.modal-galeria__caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.modal-galeria__contenido {
+  animation-name: zoom;
+  animation-duration: 0.6s;
 }
 
 /*# sourceMappingURL=style.css.map */

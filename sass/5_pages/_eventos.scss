@@ -1,3 +1,7 @@
+@use "../2_utilities/variables" as *;
+
+
+
 .seccion-galeria-eventos__grid {
     display: flex; 
     
@@ -23,4 +27,172 @@
     width: 100%;    
     height: 200px;  
     object-fit: cover; 
+}
+// ==========================================================
+// SCSS PARA EL LIGHTBOX (Modal)
+// ==========================================================
+
+.modal-galeria {
+    // 1. Visibilidad: OCULTO por defecto. El JavaScript lo cambia a 'block'.
+    display: none; 
+
+    // 2. Posición: Fija a la ventana (siempre visible)
+    position: fixed; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    
+    // 3. Superposición: CRUCIAL. Debe estar en la capa superior (z-index alto)
+    z-index: 9999; 
+    
+    // 4. Fondo: Oscuro para centrar la atención en la imagen
+    background-color: rgba(0, 0, 0, 0.9); 
+    overflow: auto; 
+    padding-top: 50px; 
+}
+
+// Estilo de la imagen dentro del modal
+.modal-galeria__contenido {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90%; 
+    object-fit: contain; // Asegura que la imagen se vea completa sin recorte
+}
+
+// Botón de cerrar (la 'X')
+.modal-galeria__cerrar {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-galeria__caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+
+.calendario-contenedor {
+    // Estilo general del contenedor
+    max-width: 600px;
+    margin: 40px auto;
+    font-family: 'Arial', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    overflow: hidden; // Para que el borde redondeado se vea bien
+}
+
+// --- 1. CABECERA (Header) ---
+.calendario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: $color-primario-calendario;
+    color: white;
+    
+    .mes-actual {
+        margin: 0;
+        font-size: 1.5em;
+        font-weight: 600;
+    }
+
+    button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5em;
+        cursor: pointer;
+        padding: 5px 10px;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+    }
+}
+
+// --- 2. CUERPO DE LA TABLA (Grid) ---
+.calendario-grid {
+    width: 100%;
+    border-collapse: collapse; // Elimina el espacio entre celdas
+    text-align: center;
+
+    // Estilos de los Días de la Semana (Header de la tabla)
+    thead th {
+        background-color: $color-secundario-calendario;
+        color: white;
+        padding: 10px 5px;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 0.85em;
+    }
+
+    // Estilos de las Celdas de los Días
+    tbody td {
+        padding: 10px 5px;
+        height: 50px; // Altura para dar espacio
+        border: 1px solid $color-fondo-claro-calendario;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.2s, color 0.2s;
+        color: $color-texto-calendario;
+
+        &:hover:not(.dia-pasado) {
+            background-color: lighten($color-secundario-calendario, 40%); // Efecto hover sutil
+        }
+    }
+
+    // --- 3. ESTILOS DE ESTADO DEL DÍA ---
+
+    // Días de otros meses
+    .dia-pasado {
+        color: #aaaaaa; // Gris claro para días inactivos
+        background-color: #fafafa;
+        cursor: default;
+    }
+    
+    // Día actual (hoy)
+    .dia-actual {
+        background-color: $color-fondo-claro-calendario;
+        font-weight: bold;
+        border: 2px solid $color-primario-calendario;
+        border-radius: 50%; // Si solo quieres rodear el número, usa un span dentro del td
+    }
+
+    // Día con evento o seleccionado
+    .dia-activo {
+        background-color: $color-dia-activo-calendario;
+        color: white;
+        font-weight: bold;
+        
+        // Efecto para el número del día dentro del TD
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: darken($color-dia-activo-calendario, 15%); // Pequeño indicador de evento
+        }
+    }
 }

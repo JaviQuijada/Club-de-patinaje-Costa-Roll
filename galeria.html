@@ -24,7 +24,7 @@
         <div class="header__contenedor">
             <div class="header__logo">
                 <figure class="header__logo-img">
-                    <img src="./img/logo-costarrol.png" alt="Logotipo Costa Roll" />
+                    <img src="./img/logo-costa-soul.png" alt="Logotipo Costa Roll" />
                 </figure>
             </div>
             
@@ -146,6 +146,11 @@
                     </figure>
                 </article>
                 </div>
+                <div class="modal-galeria" id="modalGaleria">
+                    <span class="modal-galeria__cerrar">&times;</span>
+                    <img class="modal-galeria__contenido" id="imgModal">
+                    <div class="modal-galeria__caption" id="captionModal"></div>
+                </div>
         </section>
 
         <section class="seccion-comentarios">
@@ -182,7 +187,7 @@
     <footer class="footer">
         <div class="footer__contenedor">
             <figure class="footer__logo">
-                <img src="./img/logo-costarrol.png" alt="Logotipo pequeño Costa Roll" />
+                <img src="./img/logo-costa-soul.png" alt="Logotipo pequeño Costa Roll" />
             </figure>
 
             <p class="footer__info">
@@ -211,6 +216,48 @@
                 });
             }
         });
+    </script>
+    <script>
+        // CÓDIGO JAVASCRIPT
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Obtener referencias a los elementos del modal
+    const modal = document.getElementById("modalGaleria");
+    const modalImg = document.getElementById("imgModal");
+    const captionText = document.getElementById("captionModal");
+    const spanClose = document.getElementsByClassName("modal-galeria__cerrar")[0];
+    
+    // 2. Obtener todas las imágenes de la galería
+    const galeriaItems = document.querySelectorAll(".galeria-item img");
+
+    // 3. Añadir el evento de click/tap a cada imagen
+    galeriaItems.forEach(img => {
+        img.onclick = function() {
+            // Mostrar el modal
+            modal.style.display = "block";
+            
+            // Establecer la imagen y el texto del modal
+            modalImg.src = this.src; // Usa la misma URL de la imagen pequeña
+            modalImg.alt = this.alt;
+            captionText.innerHTML = this.alt; // Usa el atributo 'alt' como leyenda
+
+            // Opcional: Si quieres mostrar la fecha/patinador, tendrías que pasar
+            // esos datos usando atributos 'data-' en el HTML o navegando el DOM.
+        }
+    });
+
+    // 4. Cerrar el modal al hacer click en la X (span)
+    spanClose.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // 5. Cerrar el modal al hacer click en el fondo oscuro
+    modal.onclick = function(event) {
+        // Asegúrate de que el clic NO fue en la imagen de contenido o la leyenda
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+});
     </script>
 </body>
 </html>

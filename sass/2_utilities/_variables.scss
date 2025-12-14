@@ -8,6 +8,13 @@ $color-text-light: #7ebdc2;        // Texto sobre fondos oscuros
 $color-background: #efe6dd;     // Fondo de página
 $color-error: #dc3545;          // Errores o warnings
 
+// Colores calendario
+$color-primario-calendario: #bb4430;      // Rojo/Terracota para destacar
+$color-secundario-calendario: #7ebdc2;    // Azul suave para el fondo
+$color-fondo-claro-calendario: #f4f4f4;   // Fondo de la cuadrícula
+$color-texto-calendario: #333333;         // Texto oscuro
+$color-dia-activo-calendario: #fcab10;    // Naranja/Amarillo para el día seleccionado/evento
+
 // Tipografía
 $font-family-primary: 'Bebas Neue', sans-serif;
 $font-family-secondary: "Oswald", sans-serif;
@@ -17,6 +24,7 @@ $font-size-base: 16px;
 $spacing-unit: 1rem;
 $container-max-width: 100%;
 $padding-section: 4rem 2rem;
+$header-height: 80px;
 
 // Breakpoints (Media Queries)
 $breakpoint-sm: 576px;
