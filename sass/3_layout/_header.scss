@@ -58,11 +58,19 @@
         &.is-active {
             display: block;
             position: absolute;
-            top: 94px;
+            top: 88px;
             right: 0;
             z-index: 100;
             background-color: rgb(21.4772727273, 19.0227272727, 19.6363636364);
             width: 50%;
+            @media (min-width: $breakpoint-sm) {
+                top: 57px;
+                display: flex;
+                justify-content: space-around;
+ 
+            }
+
+
         }
 
         // Estilos de Escritorio

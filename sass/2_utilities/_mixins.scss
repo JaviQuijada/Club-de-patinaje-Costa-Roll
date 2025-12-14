@@ -48,7 +48,8 @@
   $color-end: #f28482,    // Color 2: Salmón/Naranja
   $radius: 50px,          // Radio para la apariencia redondeada
   $text-color: #fff       // Color de texto
-) {
+) 
+{
   
   // 1. Estilos Base del Botón/Enlace
   display: inline-block;
@@ -82,3 +83,35 @@
   }
 }
 
+@mixin button-small() 
+{
+  
+  // 1. Estilos Base del Botón/Enlace
+  display: inline-block;
+  padding: $padding-y $padding-x; // Usamos los nuevos rellenos
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  
+  // 2. Apariencia y Contraste
+  border-radius: $radius; // Usamos el radio pequeño
+  color: $text-color;
+  font-weight: 500; // Peso de fuente un poco más ligero
+  text-align: center;
+  font-size: 0.9rem; // Fuente ligeramente más pequeña
+
+  // 3. Gradiente Inicial (Color 1 -> Color 2)
+  background-image: linear-gradient(to right, $color-start, $color-end);
+  
+  // 4. Transición Suave (Solo en el fondo para ser simple)
+  transition: background-image 0.3s ease-in-out;
+  
+  // 5. Estado Hover/Tap (Inversión de Colores SIMPLE)
+  &:hover,
+  &:focus {
+    // Invertimos los colores: (Color 2 -> Color 1)
+    background-image: linear-gradient(to right, $color-end, $color-start);
+    
+    // <<<<< ELIMINAMOS: transform: translateY(-2px); y box-shadow para simplicidad
+  }
+}

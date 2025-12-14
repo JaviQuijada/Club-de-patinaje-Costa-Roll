@@ -3,7 +3,12 @@
 
 
 
-main a {
+// Aplica el estilo de botón a todos los enlaces <a> DENTRO de main, 
+// EXCEPTO a aquellos que tienen la clase .no-buttons
+main a:not(.no-button) {
     @include button-gradient();
+}
 
+a.no-button {
+    @include button-small();
 }
